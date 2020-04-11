@@ -10,10 +10,15 @@ import "ace-builds/src-noconflict/theme-solarized_dark";
 function Editor({getInput}) {
 
   const [change, setChange] = useState();
+  const [theme, setTheme] = useState('twilight')
 
   const handleChange = (input) => {
     setChange(input);
     getInput(input);
+  };
+
+  const handleClick = ({ target: { id }}) => {
+    setTheme(id);
   }
 
   return (
@@ -24,15 +29,15 @@ function Editor({getInput}) {
         </section>
         <section className='settings-options'>
           <h5>Themes: </h5>
-          <div className='option' id='tomorrow' style={{backgroundColor: 'white'}}></div>
-          <div className='option' id='twilight' style={{backgroundColor: 'white'}}></div>
-          <div className='option' id='monokai' style={{backgroundColor: 'white'}}></div>
-          <div className='option' id='solarized_dark' style={{backgroundColor: 'white'}}></div>
+          <div className='option' id='tomorrow' style={{backgroundColor: 'white'}} onClick={handleClick}></div>
+          <div className='option' id='twilight' style={{backgroundColor: '#222222'}} onClick={handleClick}></div>
+          <div className='option' id='monokai' style={{backgroundColor: '#464825'}} onClick={handleClick}></div>
+          <div className='option' id='solarized_dark' style={{backgroundColor: '#0D2B36'}} onClick={handleClick}></div>
         </section>
       </div>
       <AceEditor
         mode='markdown'
-        theme='twilight'
+        theme={theme}
         onChange={handleChange}
         fontSize={14}
         value={change}
