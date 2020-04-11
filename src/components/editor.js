@@ -24,15 +24,15 @@ function Editor({getInput}) {
         </section>
         <section className='settings-options'>
           <h5>Themes: </h5>
-          <div className='option' style={{backgroundColor: 'white'}}></div>
-          <div className='option' style={{backgroundColor: 'white'}}></div>
-          <div className='option' style={{backgroundColor: 'white'}}></div>
-          <div className='option' style={{backgroundColor: 'white'}}></div>
+          <div className='option' id='tomorrow' style={{backgroundColor: 'white'}}></div>
+          <div className='option' id='twilight' style={{backgroundColor: 'white'}}></div>
+          <div className='option' id='monokai' style={{backgroundColor: 'white'}}></div>
+          <div className='option' id='solarized_dark' style={{backgroundColor: 'white'}}></div>
         </section>
       </div>
       <AceEditor
         mode='markdown'
-        theme='solarized_dark'
+        theme='twilight'
         onChange={handleChange}
         fontSize={14}
         value={change}
